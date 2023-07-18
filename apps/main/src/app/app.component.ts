@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { JokeFullComponent } from './components/joke-full/joke-full.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'angular-test-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'df-root',
+  imports: [JokeFullComponent, RouterOutlet, RouterLink],
+  template: ` <nav class="nav">
+      <a routerLink="/joke">Joke</a>
+    </nav>
+    <router-outlet />`,
+  styles: [
+    `
+      .nav {
+        display: flex;
+        gap: 10px;
+        margin-block-end: 10px;
+      }
+    `,
+  ],
 })
 export class AppComponent {
-  title = 'main';
 }
