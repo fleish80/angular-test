@@ -11,8 +11,13 @@ import { NgIf } from '@angular/common';
     <button class="load-joke-btn" (click)="loadJoke()">Load joke</button>
     <ng-container *ngIf="loading(); else jokeTmpl"> Loading... </ng-container>
     <ng-template #jokeTmpl>
-      <df-joke-full />
-      <df-joke-first-letters />
+      <ng-container *ngIf="!error()">
+        <df-joke-full />
+        <df-joke-first-letters />
+      </ng-container>
+      <ng-container *ngIf="error()">
+        {{error()?.message}}
+      </ng-container>
     </ng-template>
   `,
   styles: [
@@ -31,6 +36,7 @@ import { NgIf } from '@angular/common';
 export default class JokeComponent {
   #jokeStoreService = inject(JokeStoreService);
   loading = this.#jokeStoreService.loading;
+  error = this.#jokeStoreService.error;
 
   loadJoke() {
     this.#jokeStoreService.loadJoke();
