@@ -7,7 +7,6 @@ describe('JokeComponent', () => {
   let component: JokeComponent;
   let fixture: ComponentFixture<JokeComponent>;
  
-
   const mockJokeStoreService = {
     loading: signal(false),
     error: signal(null),

@@ -16,7 +16,6 @@ import { NgIf } from '@angular/common';
 export class JokeFirstLettersComponent {
   #jokeStoreService = inject(JokeStoreService);
   joke = this.#jokeStoreService.joke;
-  loadig = this.#jokeStoreService.loading;
   show = true;
 
   toggleLetters() {
