@@ -12,5 +12,4 @@ import { NgIf } from '@angular/common';
 export class JokeFullComponent {
   #jokeStoreService = inject(JokeStoreService);
   joke = this.#jokeStoreService.joke;
-  loadig = this.#jokeStoreService.loading;
 }
